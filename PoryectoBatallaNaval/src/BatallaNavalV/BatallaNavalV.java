@@ -7,7 +7,8 @@ public class BatallaNavalV {
 	* Juego de batalla naval por ventanas de JOptionPane
 	* Un solo jugador y un maximo de 3 botes.
 	* Ultima Modificacion por comentarios en clase de programacion 1:
-	* esta modificacion se realiza el 11-11-2017
+	* esta modificacion se realiza el 11-11-2017 y finaliza el mismo dia 
+	* hora inicio 17:00 hora finializa modificacion: 21:00
 	* Se crea un segundo jugador y se adapta el juego para dos jugadores 
 	* por rumores que el juego debe ser para dos personas
 	* Nota: 
