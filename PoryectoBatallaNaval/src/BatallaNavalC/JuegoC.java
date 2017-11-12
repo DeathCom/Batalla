@@ -44,8 +44,8 @@ public class JuegoC {
 		//creando barco1
 		
 		/*posiciona en las filas - Horizontal
-		 * la decimos al array que el resultado de math*5 lo almacene en columna
-		 * y el de math*7 en fila, esto para pocicionar el varco en horizontal
+		 * le decimos al array que el resultado de math*5 lo almacene en columna
+		 * y el de math*7 en fila, esto para pocicionar el barco en horizontal
 		 * esto asi ya que sabemos que la matriz es de 8X8 entonces en math*5 me garantizo que
 		 * el tamaño el barco si excede el largo podria convertirse en un pintado vertical, 
 		 * de lo contrario se pintara horizontal, esto de la siguente manera:
