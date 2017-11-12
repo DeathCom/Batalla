@@ -1,141 +1,78 @@
 package BatallaNavalV;
-import javax.swing.JOptionPane;;
+import javax.swing.JOptionPane;
+
+import BatallaNavalC.JuegoC;
 public class BatallaNavalV {
 	/**
-	* Juego de batalla naval por consola
+	* Juego de batalla naval por ventanas de JOptionPane
 	* Un solo jugador y un maximo de 3 botes.
+	* Ultima Modificacion por comentarios en clase de programacion 1:
+	* esta modificacion se realiza el 11-11-2017
+	* Se crea un segundo jugador y se adapta el juego para dos jugadores 
+	* por rumores que el juego debe ser para dos personas
+	* Nota: 
+	* Se debe re-acomodar el codigo y los comentarios ya que por la adaptacion 
+	* se tuvo que re-ordenar el codigo casi en su totalidad.
+	* Comentarios del codigo en  el paquete BatallaNavalC.
 	*/
-	public static final boolean pintar = true;
 	public static void main(String[] args) {
-		String [][] tablero = new String [8][8];
-		tablero(tablero);
-		int barco1, barco2, barco3;
+		JuegoV jugador1 = new JuegoV();
+		JuegoV jugador2 = new JuegoV();
+		
+		String [][] tablero1 = new String [8][8];
+		String [][] tablero2 = new String [8][8];
+		
+		jugador1.tablero(tablero1);
+		jugador2.tablero(tablero2);
+		
+		int barcoJ1_1, barcoJ1_2, barcoJ1_3, barcoJ2_1, barcoJ2_2, barcoJ2_3;
+		JOptionPane.showMessageDialog(null, "Bienvenido al Juego de Batalla Naval de Carlos Pérez\n" +
+				"Que se divierta");
 		
 		do{
-			barco1 = Integer.parseInt(JOptionPane.showInputDialog("Digite la longitud del barco1 (1-4):"));
-			barco2 = Integer.parseInt(JOptionPane.showInputDialog("Digite la longitud del barco2 (1-4):"));
-			barco3 = Integer.parseInt(JOptionPane.showInputDialog("Digite la longitud del barco3 (1-4):"));
-			if(barco1<=0|| barco1>=5 || barco2<=0 || barco2>=5 || barco3<=0 || barco3>=5){
-				System.out.println("UPS!\n" +
-						"Digito algun dato no solicitado.");
-			}
-		}while((barco1<=0|| barco1>=5) || (barco2<=0 || barco2>=5) || (barco3<=0 || barco3>=5));
-		int barcos = barco1+barco2+barco3;
-		BarcoCreacion(tablero, barco1, barco2, barco3);
-		int proyectiles=15, impacto=0;
-		while(proyectiles>0 && impacto<barcos){
-			mostrar_tablero(tablero);
-			impacto = disparo(tablero, impacto, proyectiles);
-			proyectiles--;
-		}
-		JuegoTerminado(impacto, proyectiles, barcos);
-	}
-	
-	public static void tablero(String [][] tablero){
-		for(int i=0; i<tablero.length; i++){
-			for(int j=0; j<tablero[0].length;j++){
-				tablero[i][j] = "~";
-			}
-		}
-	}
-	
-	public static void mostrar_tablero(String [][] tablero){
-		String capturaArray =" ";
-		for(int i=0; i<tablero.length; i++){
-			if(pintar){
-				for(int j=0; j<tablero[0].length;j++){
-					System.out.print(" "+tablero[i][j]);
-					capturaArray = capturaArray+" "+tablero[i][j]+" ";
-				};
-				System.out.println(" ");
-				capturaArray = capturaArray+"\n";
-			}
-		}
-		JOptionPane.showMessageDialog(null,"_________________________\n"
-									+capturaArray
-									+"_________________________\n");
-	}
-	
-	public static void BarcoCreacion(String [][] tablero, int barco1, int barco2, int barco3){ 
-		if(Math.random() < 0.5){ //barco1
-			int columna = (int) (Math.random()*5);
-			int fila = (int) (Math.random()*7);
-			for(int i=0; i<barco1;i++){
-				tablero[fila][columna+i]= "B";
-			}
-		}else{ 
-			int columna = (int)(Math.random()*7);
-			int fila = (int) (Math.random()*5);
+			JOptionPane.showMessageDialog(null, "Seleccione el tamaño de las \"3\" naves del Jugador 1");
+			barcoJ1_1 = Integer.parseInt(JOptionPane.showInputDialog("Digite la longitud del barco1 (1-4):"));
+			barcoJ1_2 = Integer.parseInt(JOptionPane.showInputDialog("Digite la longitud del barco2 (1-4):"));
+			barcoJ1_3 = Integer.parseInt(JOptionPane.showInputDialog("Digite la longitud del barco3 (1-4):"));
+			JOptionPane.showMessageDialog(null, "Seleccione el tamaño de las \"3\" naves del Jugador 2");
+			barcoJ2_1 = Integer.parseInt(JOptionPane.showInputDialog("Digite la longitud del barco1 (1-4):"));
+			barcoJ2_2 = Integer.parseInt(JOptionPane.showInputDialog("Digite la longitud del barco2 (1-4):"));
+			barcoJ2_3 = Integer.parseInt(JOptionPane.showInputDialog("Digite la longitud del barco3 (1-4):"));
 			
-            for(int i = 0; i<barco1; i++)
-            {
-            	tablero[fila+i][columna]= "B";
-            }
-		}
-		if(Math.random() < 0.5){ //barco2
-			int columna = (int) (Math.random()*5);
-			int fila = (int) (Math.random()*7);
-			
-			for(int i=0; i<barco2;i++){
-				tablero[fila][columna+i]= "B";
+			if(barcoJ1_1<=0|| barcoJ1_1>=5 || barcoJ1_2<=0 || barcoJ1_2>=5 || barcoJ1_3<=0 || barcoJ1_3>=5 
+					|| barcoJ1_1<=0|| barcoJ1_1>=5 || barcoJ1_2<=0 || barcoJ1_2>=5 || barcoJ1_3<=0 || barcoJ1_3>=5){
+				System.out.println();
+				JOptionPane.showMessageDialog(null, "UPS!\nDigito algun dato no solicitado.");
 			}
-		}else{ 
-			int columna = (int)(Math.random()*7);
-			int fila = (int) (Math.random()*5);
+		}while((barcoJ1_1<=0 || barcoJ1_1>5) || (barcoJ1_2<=0 || barcoJ1_2>5) || (barcoJ1_3<=0 || barcoJ1_3>5) 
+				|| (barcoJ2_1<=0 || barcoJ2_1>5) || (barcoJ2_2<=0 || barcoJ2_2>5) || (barcoJ2_3<=0 || barcoJ2_3>5));
+		
+		int barcosJ1 = (barcoJ1_1+barcoJ1_2+barcoJ1_3), barcosJ2 = (barcoJ2_1+barcoJ2_2+barcoJ2_3);
+		
+		jugador1.BarcoCreacion(tablero1, barcoJ1_1, barcoJ1_2, barcoJ1_3);
+		jugador2.BarcoCreacion(tablero2, barcoJ2_1, barcoJ2_2, barcoJ2_3);
+		
+		int proyectilesJ1=(barcosJ1+1), impacto1=0; 
+		int proyectilesJ2=(barcosJ2+1), impacto2=0; 
+		
+		while(proyectilesJ1>0 && impacto1<barcosJ1 && proyectilesJ2>0 && impacto2<barcosJ2){
 			
-            for(int i = 0; i<barco2; i++)
-            {
-            	tablero[fila+i][columna]= "B";
-            }
-		}
-		if(Math.random() < 0.5){ //barco3
-			int columna = (int) (Math.random()*5);
-			int fila = (int) (Math.random()*7);
-					
-			for(int i=0; i<barco3;i++){
-				tablero[fila][columna+i]= "B";
-			}
-		}else{ 
-			int columna = (int)(Math.random()*7);
-			int fila = (int) (Math.random()*5);
+			JOptionPane.showMessageDialog(null, "Jugador \"1\" atacando area del jugador \"2\"");
+			jugador2.mostrarTablero(tablero2);
+			impacto2 = jugador2.disparo(tablero2, impacto2, proyectilesJ2);
+			proyectilesJ2--;
 			
-		    for(int i = 0; i<barco3; i++)
-		    {
-		    	tablero[fila+i][columna]= "B";
-		    }
+			JOptionPane.showMessageDialog(null, "Jugador \"2\" atacando area del jugador \"1\"");
+			jugador1.mostrarTablero(tablero1); 
+			impacto1 = jugador1.disparo(tablero1, impacto1, proyectilesJ1);			
+			proyectilesJ1--; 
+			
 		}
-	}
-	public static int disparo(String [][] tablero, int impacto, int proyectiles){
-		int fila, columna;
-		JOptionPane.showMessageDialog(null, "Tiene "+proyectiles+" proyectiles");
-		fila = Integer.parseInt(JOptionPane.showInputDialog("Seleccione Fila deseada: "));
-		while(fila>8 || fila<1){
-			fila = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un valor de 1 a 8: "));
-		}
-		columna = Integer.parseInt(JOptionPane.showInputDialog("Seleccione Columna deseada: "));
-		while(columna>8 || columna<1){
-			columna = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un valor de 1 a 8: "));
-		}
-		if(tablero[fila-1][columna-1].equalsIgnoreCase("B")){
-			impacto++;
-			JOptionPane.showMessageDialog(null, "--Impact--");
-			tablero[fila-1][columna-1]="X";
-		}else{
-			JOptionPane.showMessageDialog(null, "--Fallo--");
-			tablero[fila-1][columna-1]="M";
-		}
-		return impacto;
-	}
-	public static void JuegoTerminado(int impacto, int proyectiles, int barcos){
 
-		if(impacto<barcos){
-			JOptionPane.showMessageDialog(null, "Lo siento no pudo destruir los barco");
-		}
-		if(proyectiles<1){
-			JOptionPane.showMessageDialog(null, "Ya no tiene mas proyectiles");
-		}else if(impacto>=barcos){
-			JOptionPane.showMessageDialog(null, "Destruiste las naves con exito");
-		}
-		JOptionPane.showMessageDialog(null, "Fin del Juego.");
+		JOptionPane.showMessageDialog(null, "Jugador \"1\"");
+		jugador2.JuegoTerminado(impacto2, proyectilesJ2, barcosJ2);
+		JOptionPane.showMessageDialog(null, "Jugador \"2\"");
+		jugador1.JuegoTerminado(impacto1, proyectilesJ1, barcosJ1);
 	}
+	
 }//Fin de public class BatallaNaval
