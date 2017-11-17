@@ -31,15 +31,15 @@ public class BatallaNavalC {
 		jugador2.tablero(tablero2); 
 		/*Se llena el metodo tablero con el tablero correspondiente a cada jugador
 		 * con un parametro de tipo matriz tambien llamado tablero*/
-		int salir=0;
+		String salir="";
 		int barcoJ1_1, barcoJ1_2, barcoJ1_3, barcoJ2_1, barcoJ2_2, barcoJ2_3; 
 		/*Estas variables son las que definen los tamaños de cada bote de cada uno
 		 * de los jugadores*/
 		do{
-			System.out.println("Para iniciar digite \"1\" para salir \"2\"");
-			salir = entrada.nextInt();
+			System.out.println("Digite \"I\" para iniciar o \"S\" para salir ");
+			salir = entrada.next();
 			
-			if(salir==1){
+			if(salir.equalsIgnoreCase("i")){
 				System.out.println("Bienvenido al Juego de Batalla Naval de Carlos Pérez\n" +
 						"Que se divierta");//saludo de bienvenida :)
 				
@@ -123,12 +123,12 @@ public class BatallaNavalC {
 				jugador1.JuegoTerminado(impacto1, proyectilesJ1, barcosJ1);
 				/*llamas a metodo JuegoTerminado y le pasamos impactos, proyectil y barcos 
 				 * para que nos valide y saber si se perdio o gano*/
-			}else if(salir==2){
+			}else if(salir.equalsIgnoreCase("s")){
 				System.out.println("Chao....");
 			}else{
-				System.out.println("Digito un numero que NO es: \nni \"1\" ni \"2\"");
+				System.out.println("Digito algo que NO es: \nni \"I\" ni \"S\"");
 			}
-		}while(salir != 2);
+		}while(!salir.equalsIgnoreCase("s"));
 	}
 	
 }//Fin de public class BatallaNaval

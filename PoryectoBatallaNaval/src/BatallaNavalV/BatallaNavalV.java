@@ -26,12 +26,12 @@ public class BatallaNavalV {
 		
 		jugador1.tablero(tablero1);
 		jugador2.tablero(tablero2);
-		int salir=0;
+		String salir="";
 		int barcoJ1_1, barcoJ1_2, barcoJ1_3, barcoJ2_1, barcoJ2_2, barcoJ2_3;
 		do{
-			salir = Integer.parseInt(JOptionPane.showInputDialog(null, 
-					"Para iniciar digite \"1\" para salir \"2\""));
-			if(salir==1){
+			salir = JOptionPane.showInputDialog(null, 
+					"Digite \"I\" para iniciar o \"S\" para salir ");
+			if(salir.equalsIgnoreCase("i")){
 				JOptionPane.showMessageDialog(null, "Bienvenido al Juego de Batalla Naval de Carlos Pérez\n" +
 						"Que se divierta");
 				do{
@@ -77,13 +77,12 @@ public class BatallaNavalV {
 				jugador2.JuegoTerminado(impacto2, proyectilesJ2, barcosJ2);
 				JOptionPane.showMessageDialog(null, "Jugador \"2\"");
 				jugador1.JuegoTerminado(impacto1, proyectilesJ1, barcosJ1);
-			}else if(salir==2){
+			}else if(salir.equalsIgnoreCase("s")){
 				JOptionPane.showMessageDialog(null, "Chao....");
 			}else{
-				JOptionPane.showMessageDialog(null, "Digito un numero que NO es: \n" +
-						"ni \"1\" ni \"2\"");
+				JOptionPane.showMessageDialog(null, "Digito algo que NO es: \nni \"I\" ni \"S\"");
 			}
-		}while(salir != 2);
+		}while(!salir.equalsIgnoreCase("s"));
 	}//fin Main
 	
 }//Fin de public class BatallaNaval

@@ -19,12 +19,12 @@ public class JuegoC {
 		
 		separacion();
 		/*llamamos una linea estetica de separacion, solo por usar un separador*/
-		
+		System.out.println("  1  2  3  4  5  6  7  8");//Se agrega encabezado a las columnas
 		for(int i=0; i<tablero.length; i++){
 			/*recorremos el tablero desde 0 a fin y lo pintmos en pantalla*/
-			
+			System.out.print((i+1));//Se agrega encabezado a las filas
 			for(int j=0; j<tablero[0].length;j++){
-				System.out.print(" "+tablero[i][j]);
+				System.out.print(" "+tablero[i][j]+" ");
 			}
 			System.out.println(" ");
 		}
@@ -154,10 +154,10 @@ public class JuegoC {
 		
 		if(tablero[fila-1][columna-1].equalsIgnoreCase("B")){
 			impacto++;
-			System.out.println("--Impact--");
+			System.out.println("--Impact--\n");
 			tablero[fila-1][columna-1]="X";
 		}else{
-			System.out.println("--Fallo--");
+			System.out.println("--Fallo--\n");
 			tablero[fila-1][columna-1]="M";
 		}
 		return impacto;
