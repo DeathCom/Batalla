@@ -13,8 +13,14 @@ public class BatallaNavalC {
 	* Se debe re-acomodar el codigo y los comentarios ya que por la adaptacion 
 	* se tuvo que re-ordenar el codigo casi en su totalidad.
 	* Se agrega ciclo para que no se salga del juego hasta que el usuario lo indique
-	*/
+	*18-11-2017
+	*se crea metodo de juego llamado jugando() y se llama todo el juego desde el main 
+	*con solo el metodo jugando()*/
 	public static void main(String[] args) {
+		jugando();
+		//todo el juego es llamado a travez de jugando()
+	}
+	public static void jugando(){
 		Scanner entrada = new Scanner(System.in);
 		/*Declaramos el scaner para las entradas*/
 		JuegoC jugador1 = new JuegoC();
