@@ -1,4 +1,7 @@
 package BatallaNavalC;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.Scanner;
 public class BatallaNavalC {
 	/**
@@ -15,10 +18,39 @@ public class BatallaNavalC {
 	* Se agrega ciclo para que no se salga del juego hasta que el usuario lo indique
 	*18-11-2017
 	*se crea metodo de juego llamado jugando() y se llama todo el juego desde el main 
-	*con solo el metodo jugando()*/
+	*con solo el metodo jugando()
+	*25/11/2017
+	*se inicia proceso para hacer que el proyecto use archivos de texto
+	*se utilizara en el main*/
 	public static void main(String[] args) {
-		jugando();
+		Scanner entrada = new Scanner(System.in);
+		String password, pass="";
+		System.out.println("Digite Contraseña: ");
+		password = entrada.next();
+		
+		
 		//todo el juego es llamado a travez de jugando()
+		
+		 String texto = "";
+
+	        try {
+	            File lectura = new File("contrasena.txt");
+	            FileReader leer = new FileReader(lectura);
+	           BufferedReader buffer = new BufferedReader(leer);//buffer de lectura
+	           	
+	           if(password.equals(buffer)){
+	            	jugando();
+	            }else{
+	            	System.out.println("Ups! ");
+	            }
+	            
+	             buffer.close();     
+	             leer.close();//cierre de archivo
+	        } catch (Exception e) { // log de errors
+	        	System.out.println("Ups! ");
+	        } 
+	        
+	        
 	}
 	public static void jugando(){
 		Scanner entrada = new Scanner(System.in);
