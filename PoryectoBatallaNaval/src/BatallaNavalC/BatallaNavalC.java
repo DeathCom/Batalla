@@ -28,5 +28,4 @@ public class BatallaNavalC {
 		UsoArchivoC archivo = new UsoArchivoC();
 		archivo.accesso(); 
 	}
-	
 }//Fin de public class BatallaNaval

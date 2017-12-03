@@ -24,6 +24,4 @@ public class BatallaNavalV {
 		UsoArchivoV archivo = new UsoArchivoV();
 		archivo.accesso();
 	}//fin Main
-
-	
 }//Fin de public class BatallaNaval
